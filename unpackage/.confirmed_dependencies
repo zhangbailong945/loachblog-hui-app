@@ -1,0 +1,13 @@
+{
+	"index.html": {
+		"resources": [
+			"img/startbanner/3b.png",
+			"css/hui.css",
+			"css/fonts/iconfont.woff",
+			"img/startbanner/2b.png",
+			"js/hui.js",
+			"img/startbanner/1b.png",
+			"js/hui-swipe.js"
+		]
+	}
+}
