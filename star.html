@@ -11,34 +11,34 @@
 		<link rel="stylesheet" href="css/hui.css" />
 
 	</head>
+
 	<body>
 		<!--主体开始-->
 		<div class="hui-wrap">
 			<div class="hui-center-title" style="padding: 28px;">
-				我的信息页面my.html
+				论坛页forum.html
 			</div>
 		</div>
 		<!--主体结束-->
 		<!--底部结束-->
 		<script type="text/javascript" src="js/hui.js"></script>
 		<script type="text/javascript">
-			//调用H5+API
-			hui.plusReady(function() {
-				//定义运行手而已
-				var indexPage = plus.webview.getLaunchWebview();
-				//定义上一页
-				var previousPage = {
-					pageId: 'forum.html',
-					callBack: function() {
-						//改变indexPage底部菜单样式
-						indexPage.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active");hui("#nav-star").addClass("hui-footer-active");');
-					}
+		hui.plusReady(function(){
+			var indexPage=plus.webview.getLaunchWebview();
+			var previousPage={
+				pageId:'notes.html',
+				callBack:function(){
+					indexPage.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-notes").addClass("hui-footer-active")');
 				}
-				//定义下一页
-				var nextPage = null;
-				//调用拖动函数
-				hui.drag(previousPage, nextPage);
-			});
+			}
+			var nextPage={
+				pageId:'search.html',
+				callBack:function(){
+					indexPage.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-search").addClass("hui-footer-active")');
+				}
+			};
+			hui.drag(previousPage,nextPage);
+		});
 		</script>
 	</body>
 

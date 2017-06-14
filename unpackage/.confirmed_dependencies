@@ -7,7 +7,21 @@
 			"img/startbanner/2b.png",
 			"js/hui.js",
 			"img/startbanner/1b.png",
-			"js/hui-swipe.js"
+			"js/hui-swipe.js",
+			"img/logo.png",
+			"home.html"
+		],
+		"refer": [
+			"home.html",
+			"search.html",
+			"notes.html",
+			"star.html"
+		]
+	},
+	"home.html": {
+		"resources": [
+			"css/hui.css",
+			"js/hui.js"
 		]
 	}
 }

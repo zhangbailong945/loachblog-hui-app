@@ -76,37 +76,18 @@ var wininfo = hui.winInfo();
 	function huiStartBannerClose(){
 	    hui('#startBanner').remove();
 	    hui('#hui-start-banner-close').remove();
+		var subpages=new Array(
+		  new Array('home.html',{top:'44px',bottom:'55px',left:'0'}),
+		  new Array('notes.html',{top:'44px',bottom:'55px',left:'100%'}),
+		  new Array('star.html',{top:'44px',bottom:'55px',left:'200%'}),
+		  new Array('search.html',{top:'44px',bottom:'55px',left:'300%'})
+		);
+		//调用H5+
+		hui.plusReady(function() {
+			hui.subpages(subpages);
+		});
 	}
 	
-	//定义子窗口
-			var subpages = new Array(
-				new Array('home.html', {
-					top: '44px',
-					bottom: '55px',
-					left: '0'
-				}),
-				new Array('news.html', {
-					top: '44px',
-					bottom: '55px',
-					left: '100%'
-				}),
-				new Array('forum.html', {
-					top: '44px',
-					bottom: '55px',
-					left: '200%'
-				}),
-				new Array('my.html', {
-					top: '44px',
-					bottom: '55px',
-					left: '300%'
-				})
-
-			);
-
-			//调用H5+
-			hui.plusReady(function() {
-				hui.subpages(subpages);
-			});
 </script>
 </body>
 </html>

@@ -11,12 +11,11 @@
 		<link rel="stylesheet" href="css/hui.css" />
 
 	</head>
-
 	<body>
 		<!--主体开始-->
 		<div class="hui-wrap">
 			<div class="hui-center-title" style="padding: 28px;">
-				首页
+				我的信息页面my.html
 			</div>
 		</div>
 		<!--主体结束-->
@@ -25,13 +24,13 @@
 		<script type="text/javascript">
 		hui.plusReady(function(){
 			var indexPage=plus.webview.getLaunchWebview();
-			var previousPage=null;
-			var nextPage={
-				pageId:'notes.html',
+			var previousPage={
+				pageId:'star.html',
 				callBack:function(){
-					indexPage.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active");hui("#nav-notes").addClass("hui-footer-active")');
+					indexPage.evalJS('hui("#hui-footer").find("a").removeClass("hui-footer-active"); hui("#nav-star").addClass("hui-footer-active")');
 				}
 			}
+			var nextPage=null;
 			hui.drag(previousPage,nextPage);
 		});
 		</script>
