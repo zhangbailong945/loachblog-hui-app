@@ -224,7 +224,12 @@
 			"home.html": {
 				"resources": [
 					"css/hui.css",
-					"js/hui.js"
+					"js/hui.js",
+					"img/startbanner/3b.png",
+					"img/startbanner/2b.png",
+					"img/startbanner/1b.png",
+					"js/hui-swipe.js",
+					"js/hui-refresh-load-more.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -243,7 +248,6 @@
 				"css/fonts/iconfont.svg",
 				"js/cities.js",
 				"js/hui-select-beautify.js",
-				"js/hui-refresh-load-more.js",
 				"js/hui-picker.js",
 				"js/hui-popover-msg.js",
 				"js/hui-form.js",

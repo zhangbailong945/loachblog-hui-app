@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	</head>
+	<body>
+	<script type="text/javascript">
+		$(function(){
+			$.getJSON(
+				'http://zhangbailong.com/Api/Public/LoachBlog/?service=Articles.getAllArticles&pageNum=1',
+				function(data){
+					alert(data);
+				}
+			);
+		});
+	</script>
+	</body>
+</html>

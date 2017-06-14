@@ -6,9 +6,7 @@
 <title>欢迎</title>
 <link rel="stylesheet" type="text/css" href="css/hui.css" />
 <style>
-.hui-start-banner{width:100%; height:100%; position:fixed; z-index:9998; left:0px; top:0px; background:#FFFFFF; display:none;}
-#hui-start-banner-close{width:50px; position:fixed; z-index:9999; top:20px; right:20px; background:#FFFFFF; display:none; text-align:center; border-radius:3px; height:28px; line-height:28px; font-size:14px; color:#26A2FF;}
-.hui-start-banner .hui-swipe-indicator{width:96%; position:absolute; z-index:3; left:2%; bottom:20px; display:none;}
+
 </style>
 </head>
 <body>
@@ -26,8 +24,8 @@
 		<!--头部结束-->
 		<!--主体开始-->
 		<div class="hui-wrap">
-			<div class="hui-center-title" style="padding: 28px;">
-				主页
+			<div class="hui-center-title">
+				 
 			</div>
 		</div>
 		<!--主体结束-->
@@ -56,37 +54,22 @@
 			</a>
 		</div>
 </div>
-<div class="hui-start-banner" id="startBanner">
-    <div class="hui-swipe-item" style="background:#2C2342;"><img src="img/startbanner/2b.png" /></div>
-    <div class="hui-swipe-item" style="background:#6CC5F1;"><img src="img/startbanner/1b.png" /></div>
-    <div class="hui-swipe-item" style="background:#62C0CC;"><a href="javascript:huiStartBannerClose();"><img src="img/startbanner/3b.png" /></a></div>
-</div>
-<div id="hui-start-banner-close" onclick="huiStartBannerClose();">关闭</div>
+
 <script type="text/javascript" src="js/hui.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/hui-swipe.js" charset="UTF-8"></script>
 <script type="text/javascript">
-var wininfo = hui.winInfo();
-	hui('#startBanner').find('.hui-swipe-item').css({height:wininfo.height+'px'});
-	hui('#startBanner').show();
-	hui('#hui-start-banner-close').show();
-	var swipe      = new huiSwpie('#startBanner');
-	swipe.autoPlay = false;
-	swipe.loop     = false;
-	swipe.run();
-	function huiStartBannerClose(){
-	    hui('#startBanner').remove();
-	    hui('#hui-start-banner-close').remove();
-		var subpages=new Array(
-		  new Array('home.html',{top:'44px',bottom:'55px',left:'0'}),
-		  new Array('notes.html',{top:'44px',bottom:'55px',left:'100%'}),
-		  new Array('star.html',{top:'44px',bottom:'55px',left:'200%'}),
-		  new Array('search.html',{top:'44px',bottom:'55px',left:'300%'})
-		);
+
+    var subpages=new Array(
+	  new Array('home.html',{top:'44px',bottom:'55px',left:'0'}),
+	  new Array('notes.html',{top:'44px',bottom:'55px',left:'100%'}),
+	  new Array('star.html',{top:'44px',bottom:'55px',left:'200%'}),
+	  new Array('search.html',{top:'44px',bottom:'55px',left:'300%'})
+	);
 		//调用H5+
-		hui.plusReady(function() {
-			hui.subpages(subpages);
-		});
-	}
+	hui.plusReady(function() {
+		hui.subpages(subpages);
+	});
+        
 	
 </script>
 </body>
