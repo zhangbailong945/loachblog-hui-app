@@ -18,6 +18,7 @@
 			<div class="hui-refresh-icon"></div>
 			<div class="hui-media-list hui-refresh-content" style="padding:18px;">
 				<ul id="list">
+					<!--
 					<li>
 						<a href="javascript:hui.toast('hi...');">
 							<div class="hui-media-list-img"><img src="img/logo.png" /></div>
@@ -28,16 +29,7 @@
 							</div>
 						</a>
 					</li>
-					<li>
-						<a href="javascript:hui.toast('hi...');">
-							<div class="hui-media-list-img"><img src="img/logo.png" /></div>
-							<div class="hui-media-content">
-								<h1>标题内容....</h1>
-								<p>笑对人生，能穿透迷雾；笑对人生，能坚持到底；笑对人生，</p>
-								<p><font style="color:#000000;font-size:12px;">作者：</font><font style="color:#188EEE;font-size:12px;">loach</font> <font style="color:#000000;font-size:12px;">时间：</font><font style="color:#188EEE;font-size:12px;">2017-6-14</font></p>								
-							</div>
-						</a>
-					</li>
+					-->
 				</ul>
 			</div>
 			</div>
@@ -49,6 +41,8 @@
 		<script type="text/javascript" src="js/hui.js"></script>
 		<script type="text/javascript" src="js/hui-refresh-load-more.js" ></script>
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/PhalApi.js" ></script>
+		<script type="text/javascript" src="js/api-config.js" ></script>
 		<script type="text/javascript">	
 		hui.plusReady(function(){
 			var indexPage=plus.webview.getLaunchWebview();
@@ -60,9 +54,12 @@
 				}
 			}
 			hui.drag(previousPage,nextPage);
+			//getAllArticles();
 		});
-
-		hui.refresh('#refreshContainer', refresh);
+        
+        
+		hui.refresh('#refreshContainer', getAllArticles);
+		/*
 		function refresh(){
 		    //if(hui.refreshNumber < 1){hui.loading('加载中...');}
 		    
@@ -89,6 +86,49 @@
 		        }
 		    );
 		}
+		*/
+		
+		function getAllArticles()
+		{
+			if(hui.refreshNumber < 1){hui.loading('加载中...');}
+			var pageNum=1;			
+			var data = '&pageNum='+ pageNum;
+		    query_get(api_url,api_getAllArticles, data, function(rs){
+		      //回调函数
+		      if(rs.ret == 200){
+		        //$('#rs_data').val(JSON.stringify(rs));
+		        //如果成功打印信息并且做出相应的处理
+		        //alert(rs.data.list.length);
+		        var data=rs.data.list;
+		        var html='';
+		        hui('#list').html('');
+		        for(var i=0;i<data.length;i++)
+		        {
+		        	var time=get_Time_Formart(data[i].unix_time);
+		        	var content=html_Format(data[i].content).substring(0,100);
+		        	html+='<li>'+
+						'<a href="">'+
+							'<div class="hui-media-list-img"><img src="img/logo.png" /></div>'+
+							'<div class="hui-media-content">'+
+								'<h1>'+data[i].title+'</h1>'+
+								'<p>&nbsp;&nbsp;&nbsp;&nbsp;'+content+'......</p>'+
+								'<p><font style="color:#000000;font-size:12px;">作者：</font><font style="color:#188EEE;font-size:12px;">loach</font> <font style="color:#000000;font-size:12px;">时间：</font><font style="color:#188EEE;font-size:12px;">'+time+'</font></p>'+						
+							'</div>'+
+						'</a>'+
+					'</li>';
+		        }
+		        hui('#list').html(html);
+		        hui.endRefresh();
+		        //关闭loading
+		        hui.loading('加载中...', true);
+		      }else{
+		        $('#rs_data').val(JSON.stringify(rs));
+		        //如果失败打印失败信息并且做出相应的处理
+		        //alert(rs.msg);
+		      }
+		    });
+		}
+		
 		</script>
 	</body>
 

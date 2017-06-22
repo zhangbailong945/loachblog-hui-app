@@ -26,7 +26,10 @@
 			"img/startbanner/2b.png",
 			"img/startbanner/1b.png",
 			"js/hui-swipe.js",
-			"js/hui-refresh-load-more.js"
+			"js/hui-refresh-load-more.js",
+			"js/jquery-3.2.1.min.js",
+			"js/PhalApi.js",
+			"js/api-config.js"
 		]
 	}
 }
